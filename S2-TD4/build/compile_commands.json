@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/Users/annamarialannaud/Documents/imac./cours/Semestre-2/ProgAlgo-S2/S2-TD4/build",
+  "command": "/usr/bin/clang++   -g -std=gnu++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -o CMakeFiles/main.dir/main.cpp.o -c /Users/annamarialannaud/Documents/imac./cours/Semestre-2/ProgAlgo-S2/S2-TD4/main.cpp",
+  "file": "/Users/annamarialannaud/Documents/imac./cours/Semestre-2/ProgAlgo-S2/S2-TD4/main.cpp",
+  "output": "CMakeFiles/main.dir/main.cpp.o"
+}
+]
