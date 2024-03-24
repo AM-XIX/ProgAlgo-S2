@@ -1,0 +1,75 @@
+#pragma once
+#include <numeric>
+
+struct Fraction {
+    int num {0};
+    int den {1};
+    int fraction = num / den;
+    Fraction(int num, int den) : num(num), den(den) {}
+    int getNumerator() const { return num; }
+    int getDenominator() const { return den; }
+    int getFraction() const { return fraction; }
+    void setNumerator(int num) { this->num = num; }
+    void setDenominator(int den) { this->den = den; }
+    void setFraction(int fraction) { this->fraction = fraction;}
+    void simplify();
+};
+
+// ====== Exercice 1 ======
+Fraction operator+(const Fraction& fractA, const Fraction& fractB);
+Fraction operator-(const Fraction& fractA, const Fraction& fractB);
+Fraction operator*(const Fraction& fractA, const Fraction& fractB);
+Fraction operator/(const Fraction& fractA, const Fraction& fractB);
+
+// 01 - bonus : simplifier
+// PS : je suis partie sur du gdc, je sais pas si on avait le droit
+void Fraction::simplify() {
+    int gcd = std::gcd(num, den);
+    num /= gcd;
+    den /= gcd;
+}
+
+// ====== Exercice 2 ======
+std::ostream& operator<<(std::ostream& os, const Fraction& fract);
+
+// ====== Exercice 3 ======
+bool operator==(const Fraction& fractA, const Fraction& fractB);
+bool operator!=(const Fraction& fractA, const Fraction& fractB);
+
+// ====== Exercice 4 ======
+// -------- 04-01
+bool operator<(const Fraction& fractA, const Fraction& fractB);
+// -------- 04-02
+bool operator>(const Fraction& fractA, const Fraction& fractB);
+bool operator<=(const Fraction& fractA, const Fraction& fractB);
+bool operator>=(const Fraction& fractA, const Fraction& fractB);
+
+
+// ====== Exercice 5 ======
+Fraction& operator+=(Fraction& fractA, const Fraction& fractB) {
+    fractA.num = fractA.num * fractB.den + fractB.num * fractA.den;
+    fractA.den *= fractB.den;
+    fractA.simplify();
+    return fractA;
+}
+
+Fraction& operator-=(Fraction& fractA, const Fraction& fractB) {
+    fractA.num = fractA.num * fractB.den - fractB.num * fractA.den;
+    fractA.den *= fractB.den;
+    fractA.simplify();
+    return fractA;
+}
+
+Fraction& operator*=(Fraction& fractA, const Fraction& fractB) {
+    fractA.num *= fractB.num;
+    fractA.den *= fractB.den;
+    fractA.simplify();
+    return fractA;
+}
+
+Fraction& operator/=(Fraction& fractA, const Fraction& fractB) {
+    fractA.num *= fractB.den;
+    fractA.den *= fractB.num;
+    fractA.simplify();
+    return fractA;
+}
