@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.0)
 set(CMAKE_CXX_STANDARD 17)
 
 # Le nom du projet
-project(NPI_PROJECT)
+project(TD2SORT)
 
 # On indique que l'on veut créer un exécutable "helloImac" compilé à partir du fichier helloImac.cpp
 add_executable(main main.cpp)
