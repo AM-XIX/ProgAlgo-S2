@@ -17,4 +17,3 @@ bool is_floating(std::string const& s);
 
 // -------- 01-04
 float npi_evaluate(std::vector<std::string> const& tokens);
-

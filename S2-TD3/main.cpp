@@ -4,6 +4,7 @@
 #include <sstream>
 #include <iterator>
 #include "main.hpp"
+#include "tokenstruct.cpp"
 #include <cctype>
 
 
