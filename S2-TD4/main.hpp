@@ -10,3 +10,6 @@ std::vector<std::string> split_string(std::string const& str);
 
 // ———————— 03 —————————
 bool is_palindrome(std::string const& str);
+
+// ———————— 04 —————————
+int sommeCarre(std::vector<int> const& numbers);

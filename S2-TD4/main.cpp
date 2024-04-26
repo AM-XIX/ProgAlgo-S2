@@ -30,6 +30,13 @@ bool isPalindrome(const std::string& str) {
     return std::equal(std::begin(str), std::end(str), std::rbegin(str));
 }
 
+ // ===== Bonus =====
+int sommeCarre(const std::vector<int>& vec) {
+    return std::accumulate(vec.begin(), vec.end(), 0, [](int sum, int num) {
+        return sum + (num * num);
+    });
+}
+
 int main() {
     // ===== Exercice 1 =====
     // ———————— 01-01 —————————
@@ -79,4 +86,7 @@ int main() {
 
     // ===== Exercice 3 =====
     std::cout << isPalindrome("kayak") << std::endl;
+
+    // ===== Bonus =====
+    std::cout << sommeCarre(v) << std::endl;
 }
