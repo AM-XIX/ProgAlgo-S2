@@ -52,7 +52,6 @@ float somme_vector(std::vector<float> const& vec) {
     return somme;
 }
 
-// Je n'ai pas compris où le cost devait intervenir dans l'exo
 int main() {
     // ———————— 02-03 —————————
     std::vector<std::pair<std::string, float>> robots_fixes = get_robots_fix(10);
@@ -63,11 +62,16 @@ int main() {
             numRepairs = std::rand() % 10;
         }
     }
+    float totalCostAllRepairs = 0.0f;
     for (const auto& repair : repairs_map) {
         const std::string& robotName = repair.first;
         const std::vector<float>& repairs = repair.second;
         float totalRepairs = somme_vector(repairs);
-        std::cout << robotName << " a " << totalRepairs << " réparations à faire." << std::endl;
+        float totalCost = totalRepairs * 100.0f;
+        std::cout << robotName << " a " << totalRepairs << " réparations à faire."<< std::endl;
+        std::cout << "Coût total : " << totalCost << "€." << std::endl;
+        totalCostAllRepairs += totalCost;
     }
+    std::cout << "Facture finale (ça va faire mal cheh) : " << totalCostAllRepairs << "€." << std::endl;
     return 0;
 }
