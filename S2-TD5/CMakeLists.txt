@@ -8,4 +8,4 @@ set(CMAKE_CXX_STANDARD 17)
 project(INTERATOR_PROJECT)
 
 # On indique que l'on veut créer un exécutable "helloImac" compilé à partir du fichier helloImac.cpp
-add_executable(main robots.cpp)
+add_executable(main cards.cpp)
