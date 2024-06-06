@@ -89,3 +89,56 @@ Fraction::operator float() const {
     Fraction f = *this;
     return f.to_float();
 }
+
+// ====== Aller + loin - 01 ======
+Fraction operator+(Fraction const &f, int const i){
+    Fraction result{0, 0};
+    result.num = f.num + i * f.den;
+    result.den = f.den;
+    result.simplify();
+    return result;
+}
+
+Fraction operator+(int const i, Fraction const &f){
+    Fraction result{0, 0};
+    result.num = f.num + i * f.den;
+    result.den = f.den;
+    result.simplify();
+    return result;
+}
+
+Fraction operator-(Fraction const &f, int const i) {
+    Fraction result(f.getNumerator() - i * f.getDenominator(), f.getDenominator());
+    result.simplify();
+    return result;
+}
+
+Fraction operator-(int i, const Fraction& f) {
+    Fraction result(i * f.getDenominator() - f.getNumerator(), f.getDenominator());
+    result.simplify();
+    return result;
+}
+
+Fraction operator*(const Fraction& f, int i) {
+    Fraction result(f.getNumerator() * i, f.getDenominator());
+    result.simplify();
+    return result;
+}
+
+Fraction operator*(int i, const Fraction& f) {
+    Fraction result(f.getNumerator() * i, f.getDenominator());
+    result.simplify();
+    return result;
+}
+
+Fraction operator/(const Fraction& f, int i) {
+    Fraction result(f.getNumerator(), f.getDenominator() * i);
+    result.simplify();
+    return result;
+}
+
+Fraction operator/(int i, const Fraction& f) {
+    Fraction result(i * f.getDenominator(), f.getNumerator());
+    result.simplify();
+    return result;
+}

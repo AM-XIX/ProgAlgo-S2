@@ -41,6 +41,5 @@ int main() {
     float floatA {static_cast<float>(fractA)};
     std::cout << "Fraction floatée : " << floatA << std::endl;
 
-
     return 0;
 }

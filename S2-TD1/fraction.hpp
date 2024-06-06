@@ -57,3 +57,15 @@ Fraction operator-=(const Fraction& fractA, const Fraction& fractB);
 Fraction operator*=(const Fraction& fractA, const Fraction& fractB);
 Fraction operator/=(const Fraction& fractA, const Fraction& fractB);
 
+// ====== Aller + loin - 01 ======
+Fraction operator+(Fraction const& f, int const i);
+Fraction operator+(int const i, Fraction const& f);
+
+Fraction operator-(Fraction const& f, int const i);
+Fraction operator-(int const i, Fraction const& f);
+
+Fraction operator*(Fraction const& f, int const i);
+Fraction operator*(int const i, Fraction const& f);
+
+Fraction operator/(Fraction const& f, int const i);
+Fraction operator/(int const i, Fraction const& f);
