@@ -13,15 +13,35 @@ int countLetters(const std::string& sentence) {
 }
 
 // ———————— 02-02 —————————
+// ----- Version avec streams
+// std::vector<std::string> splitSentence(const std::string& sentence) {
+//     std::vector<std::string> words;
+//     std::string word;
+//     std::istringstream iss(sentence);
+    
+//     while (iss >> word) {
+//         words.push_back(word);
+//     }
+    
+//     return words;
+// }
+
+// ----- Version sans streams
 std::vector<std::string> splitSentence(const std::string& sentence) {
     std::vector<std::string> words;
     std::string word;
-    std::istringstream iss(sentence);
-    
-    while (iss >> word) {
+    size_t start = 0;
+    size_t end = sentence.find(' ');
+    while (end != std::string::npos) {
+        word = sentence.substr(start, end - start);
         words.push_back(word);
+        start = end + 1;
+
+        end = sentence.find(' ', start);
     }
-    
+    word = sentence.substr(start);
+    words.push_back(word);
+
     return words;
 }
 
@@ -30,10 +50,22 @@ bool isPalindrome(const std::string& str) {
     return std::equal(std::begin(str), std::end(str), std::rbegin(str));
 }
 
- // ===== Bonus =====
+// ===== Aller + loin (lambda) =====
+// ———————— ++-01 —————————
 int sommeCarre(const std::vector<int>& vec) {
     return std::accumulate(vec.begin(), vec.end(), 0, [](int sum, int num) {
         return sum + (num * num);
+    });
+}
+// ———————— ++-02 —————————
+ auto isEven = [](int number){ return number % 2 == 0; };
+
+int evensProduct(const std::vector<int>& vec) {
+    return std::accumulate(vec.begin(), vec.end(), 1, [](int product, int num) {
+        if (isEven(num)) {
+            return product * num;
+        }
+        return product;
     });
 }
 
