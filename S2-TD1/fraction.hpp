@@ -13,6 +13,13 @@ struct Fraction {
     void setDenominator(int den) { this->den = den; }
     void setFraction(int fraction) { this->fraction = fraction;}
     void simplify();
+
+    // ====== Exercice 6 ======
+    // -------- 06-01
+    float to_float() {
+        return (float)num/(float)den;
+    }
+    operator float() const;
 };
 
 // ====== Exercice 1 ======
@@ -44,32 +51,9 @@ bool operator>(const Fraction& fractA, const Fraction& fractB);
 bool operator<=(const Fraction& fractA, const Fraction& fractB);
 bool operator>=(const Fraction& fractA, const Fraction& fractB);
 
-
 // ====== Exercice 5 ======
-Fraction& operator+=(Fraction& fractA, const Fraction& fractB) {
-    fractA.num = fractA.num * fractB.den + fractB.num * fractA.den;
-    fractA.den *= fractB.den;
-    fractA.simplify();
-    return fractA;
-}
+Fraction operator+=(const Fraction& fractA, const Fraction& fractB);
+Fraction operator-=(const Fraction& fractA, const Fraction& fractB);
+Fraction operator*=(const Fraction& fractA, const Fraction& fractB);
+Fraction operator/=(const Fraction& fractA, const Fraction& fractB);
 
-Fraction& operator-=(Fraction& fractA, const Fraction& fractB) {
-    fractA.num = fractA.num * fractB.den - fractB.num * fractA.den;
-    fractA.den *= fractB.den;
-    fractA.simplify();
-    return fractA;
-}
-
-Fraction& operator*=(Fraction& fractA, const Fraction& fractB) {
-    fractA.num *= fractB.num;
-    fractA.den *= fractB.den;
-    fractA.simplify();
-    return fractA;
-}
-
-Fraction& operator/=(Fraction& fractA, const Fraction& fractB) {
-    fractA.num *= fractB.den;
-    fractA.den *= fractB.num;
-    fractA.simplify();
-    return fractA;
-}

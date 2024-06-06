@@ -35,5 +35,12 @@ int main() {
     } else {
         std::cout << "Pas différentes" << std::endl;
     }
+
+    // ====== Exercice 6 ======
+    // -------- 06-03
+    float floatA {static_cast<float>(fractA)};
+    std::cout << "Fraction floatée : " << floatA << std::endl;
+
+
     return 0;
 }
