@@ -34,6 +34,10 @@ namespace Graph {
 
         void print_DFS(int const start) const;
         void print_BFS(int const start) const;
+        // ———————— 02-Bonus —————————
+        void DFS(int const start, std::function<void(int const)> const& callback) const;
+        
+        std::unordered_map<int, std::pair<float, int>> dijkstra(WeightedGraph const& graph, int const& start, int const end);
     };
     WeightedGraph adjacency_list_from_adjacency_matrix(std::vector<std::vector<float>> const& adjacency_matrix);
     // WeightedGraph build_from_adjacency_matrix(std::vector<std::vector<float>> const& adjacency_matrix);
