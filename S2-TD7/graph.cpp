@@ -3,6 +3,7 @@
 #include "graph.hpp"
 #include <unordered_map>
 #include <utility>
+#include <stack>
 
 // ===== Exercice 1 =====
 // ———————— 01-01 —————————
@@ -49,3 +50,31 @@ Graph::WeightedGraph adjacency_list_from_adjacency_matrix(std::vector<std::vecto
 
     return graph;
 }
+
+// ===== Exercice 2 =====
+// ———————— 02-01 —————————
+        void Graph::WeightedGraph::print_DFS(int const start) const {
+            std::unordered_map<int, bool> checked;
+            for (const auto& vertex : adjacency_list) {
+                checked[vertex.first] = false;
+            }
+
+            std::stack<int> stack;
+            stack.push(start);
+
+            while (!stack.empty()) {
+                int current_vertex = stack.top();
+                stack.pop();
+
+                if (!checked[current_vertex]) {
+                    checked[current_vertex] = true;
+                    std::cout << current_vertex << ", ";
+
+                    for (const auto& next_vertex : adjacency_list.at(current_vertex)) {
+                        if (!checked[next_vertex.to]) {
+                            stack.push(next_vertex.to);
+                        }
+                    }
+                }
+            }
+        }

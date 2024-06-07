@@ -28,5 +28,7 @@ int main() {
     bool compare = (graph1 == graph2);
     std::cout << "Les graphs sont " << (compare ? "égaux." : "inégaux.") << std::endl;
 
+    // ———————— 02-01 —————————
+    graph2.print_DFS(1);
     return 0;
 }
