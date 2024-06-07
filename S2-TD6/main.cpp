@@ -3,7 +3,6 @@
 #include "main.hpp"
 #include "node.cpp"
 
-
 int main() {
     Node* root = create_node(5);
 
@@ -14,16 +13,15 @@ int main() {
     root->insert(8);
     root->insert(81);
 
-
     pretty_print_left_right(*root);
     
-    // -----WIP-------
-    // display_infixe(*root);
+    // ———————— 01-06—————————
+    root->display_infixe();
 
     // ———————— 01-04 —————————
     int height = root->height();
     std::cout << "Hauteur : " << height << std::endl;
-
+    
     // ———————— 01-05 —————————
     root->delete_childs();
     pretty_print_left_right(*root);

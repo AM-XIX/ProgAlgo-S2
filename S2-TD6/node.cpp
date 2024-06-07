@@ -87,3 +87,57 @@ void Node::display_infixe() const {
         this->right->display_infixe();
     }
 }
+
+// ———————— 01-09 —————————
+Node*& most_left(Node*& node) {
+    if (node->left == nullptr) {
+        return node;
+    }
+    return most_left(node->left);
+}
+
+// ———————— 01-10 —————————
+bool remove(Node*& node, int value) {
+    if (node == nullptr) {
+        return false;
+    }
+    if (value < node->value) {
+        return remove(node->left, value);
+    } else if (value > node->value) {
+        return remove(node->right, value);
+    } else {
+        // Cas : Le nœud n'a pas de fils: on peut le supprimer directement (exemple précédent).
+        if (node->is_leaf()) {
+            delete node;
+            node = nullptr;
+            return true;
+        // Cas : Le nœud a un seul fils: on peut le supprimer et le remplacer par son fils. (gauche/droite)
+        } else if (node->left == nullptr) {
+            Node* tmp = node->right;
+            delete node;
+            node = tmp;
+            return true;
+        } else if (node->right == nullptr) {
+            Node* tmp = node->left;
+            delete node;
+            node = tmp;
+            return true;
+        } else {
+            // Cas : Le nœud a deux fils (usage du most_left)
+            Node* tmp = most_left(node->right);
+            node->value = tmp->value;
+            return remove(node->right, node->value);
+        }
+    }
+}
+
+// ———————— 01-11 —————————
+void delete_tree(Node* node) {
+    if (node == nullptr) {
+        return;
+    }
+    delete_tree(node->left);
+    delete_tree(node->right);
+    delete node;
+    node = nullptr;
+}

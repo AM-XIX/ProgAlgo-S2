@@ -18,9 +18,19 @@ struct Node {
     void delete_childs();
     // ———————— 01-06 —————————
     void display_infixe() const;
+    
+    // std::vector<Node const*> Node::prefixe() const;
 };
 
 // ———————— 01-01 —————————
 Node* create_node(int value);
 
+// ———————— 01-09 —————————
+Node*& most_left(Node*& node);
+
+// ———————— 01-10 —————————
+bool remove(Node*& node, int value);
+
+// ———————— 01-11 —————————
+void delete_tree(Node* node);
 
