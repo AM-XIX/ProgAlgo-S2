@@ -72,8 +72,43 @@ void merge_sort(std::vector<float> & vec) {
 }
 
 // ====== Exercice 3 ======
+// à changer en float pour tester le merged sort
 std::vector<int> generate_random_vector(size_t const size, int const max = 100) {
     std::vector<int> vec(size);
     std::generate(vec.begin(), vec.end(), [&max]() { return std::rand() % max;} );
     return vec;
+}
+
+// ====== Exercice 4 ======
+int search(std::vector<int> const& vec, int value) {
+    int left = 0;
+    int right = vec.size() - 1;
+
+    while (left <= right) {
+        int middle = left + (right - left) / 2;
+        if (vec[middle] == value) {
+            return middle;
+        } else if (vec[middle] < value) {
+            left = middle + 1;
+        } else {
+            right = middle - 1;
+        }
+    }
+
+    return -1;
+}
+
+// ====== Aller + loin ======
+void counting_sort(std::vector<int> &vec, int const max) {
+    std::vector<int> count(max + 1, 0);
+    for (int num : vec) {
+        count[num]++;
+    }
+    int index = 0;
+    for (int i = 0; i <= max; i++) {
+        while (count[i] > 0) {
+            vec[index++] = i;
+            count[i]--;
+        }
+    }
 }
