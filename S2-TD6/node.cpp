@@ -141,3 +141,17 @@ void delete_tree(Node* node) {
     delete node;
     node = nullptr;
 }
+
+int Node::min() const {
+    if (this->left == nullptr) {
+        return this->value;
+    }
+    return this->left->min();
+}
+
+int Node::max() const {
+    if (this->right == nullptr) {
+        return this->value;
+    }
+    return this->right->max();
+}

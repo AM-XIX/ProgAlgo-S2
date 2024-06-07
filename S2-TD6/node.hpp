@@ -18,8 +18,10 @@ struct Node {
     void delete_childs();
     // ———————— 01-06 —————————
     void display_infixe() const;
-    
     // std::vector<Node const*> Node::prefixe() const;
+
+    int min() const;
+    int max() const;
 };
 
 // ———————— 01-01 —————————

@@ -21,9 +21,16 @@ int main() {
     // ———————— 01-04 —————————
     int height = root->height();
     std::cout << "Hauteur : " << height << std::endl;
-    
+
+    // ———————— 01-12 Bonus —————————
+    int minValue = root->min();
+    int maxValue = root->max();
+    std::cout << "Valeur min : " << minValue << std::endl;
+    std::cout << "Valeur max : " << maxValue << std::endl;
+
     // ———————— 01-05 —————————
     root->delete_childs();
     pretty_print_left_right(*root);
+
     return 0;
 }
